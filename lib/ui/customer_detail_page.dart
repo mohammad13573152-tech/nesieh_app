@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/customer.dart';
 
-class CustomerDetailPage extends StatelessWidget {
+class CustomerDetailPage extends StatefulWidget {
   final Customer customer;
 
   const CustomerDetailPage({
@@ -10,10 +10,15 @@ class CustomerDetailPage extends StatelessWidget {
   });
 
   @override
+  State<CustomerDetailPage> createState() => _CustomerDetailPageState();
+}
+
+class _CustomerDetailPageState extends State<CustomerDetailPage> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(customer.name),
+        title: Text(widget.customer.name),
       ),
       body: const Center(
         child: Text('صفحه جزئیات مشتری'),
