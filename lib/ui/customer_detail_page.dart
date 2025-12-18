@@ -4,7 +4,7 @@ import '../services/customer_debt_service.dart';
 
 class CustomerDetailPage extends StatefulWidget {
   final Customer customer;
-
+  
   const CustomerDetailPage({
     super.key,
     required this.customer,
