@@ -15,6 +15,7 @@ class CustomerDetailPage extends StatefulWidget {
 }
 
 class _CustomerDetailPageState extends State<CustomerDetailPage> {
+ late Future<int> _totalDebtFuture;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
