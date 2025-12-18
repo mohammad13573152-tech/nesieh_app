@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/customer.dart';
 import '../services/customer_debt_service.dart';
-
+import 'add_purchase_page.dart';
 class CustomerDetailPage extends StatefulWidget {
   final Customer customer;
   
@@ -65,7 +65,20 @@ void initState() {
           ),
         ],
       );
+    },floatingActionButton: FloatingActionButton(
+    child: const Icon(Icons.add),
+    onPressed: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => AddPurchasePage(
+            customer: widget.customer,
+          ),
+        ),
+      );
     },
+  ),
+);
   ),
 ),
 
