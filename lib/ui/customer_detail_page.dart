@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/customer.dart';
+import '../services/customer_debt_service.dart';
 
 class CustomerDetailPage extends StatefulWidget {
   final Customer customer;
