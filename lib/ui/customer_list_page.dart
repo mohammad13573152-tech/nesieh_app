@@ -40,12 +40,17 @@ class _CustomerListPageState extends State<CustomerListPage> {
                 return ListTile(
                   title: Text(customer['name']),
                   subtitle: Text('بدهی: ${customer['totalDebt']} ریال'),
-                );
-              },
-            );
-          }
-        },
+                onTap: () {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => CustomerDetailPage(
+        customer: customer,
       ),
+    ),
+  );
+},
+
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           final result = await Navigator.push(
