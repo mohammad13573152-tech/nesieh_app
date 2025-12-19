@@ -33,11 +33,48 @@ class _CustomerDetailPageState extends State<CustomerDetailPage> {
     _purchasesFuture = _purchaseRepository.getPurchasesByCustomerId(widget.customer.id!); // 👈 مقداردهی Future خریدها
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.customer.name),
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      title: Text(widget.customer.name),
+    ),
+
+    body: Center(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            ...
+          ],
+        ),
+      ),
+    ),
+
+    floatingActionButton: FloatingActionButton(
+      child: const Icon(Icons.add),
+      onPressed: () async {
+        final result = await Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => AddPurchasePage(
+              customer: widget.customer,
+            ),
+          ),
+        );
+
+        if (result == true) {
+          setState(() {
+            _totalDebtFuture =
+                _customerDebtService.calculateCustomerTotalDebt(widget.customer.id!);
+            _purchasesFuture =
+                _purchaseRepository.getPurchasesByCustomerId(widget.customer.id!);
+          });
+        }
+      },
+    ),
+  );
+}
+
         actions: [
           // اینجا می‌توانید دکمه‌های دیگری اضافه کنید، مثلاً ویرایش مشتری
         ],
